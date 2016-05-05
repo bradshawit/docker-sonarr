@@ -18,7 +18,7 @@ ADD ["jackett.service", "/etc/systemd/system/"]
 RUN adduser jackett
 #RUN addgroup jackett
 RUN adduser jackett jackett
-RUN mkdir /opt/jackett && mv /tmp/jackett/* /opt/jackett
+RUN mkdir /opt/jackett && mv /tmp/Jackett*/* /opt/jackett
 
 # RUN touch /etc/systemd/system/jackett.service
 

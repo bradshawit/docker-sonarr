@@ -2,6 +2,7 @@ FROM ubuntu:xenial
 
 RUN apt-get update -q && \
     apt-get upgrade -qy && \
+    apt-get install -qy bzip2 && \
     apt-get install -qy libcurl4-openssl-dev && \
     apt-get install -qy mono-devel && \
     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA5DFFC && \
@@ -11,7 +12,8 @@ RUN apt-get update -q && \
     apt-get clean
 
 # http://www.htpcguides.com/install-jackett-ubuntu-15-x-for-custom-torrents-in-sonarr/
-ADD ["https://github.com/zone117x/Jackett/archive/v0.6.9.tar.gz", "/tmp/jackett"]
+ADD ["https://github.com/zone117x/Jackett/archive/v0.6.9.tar.gz", "/tmp/jackett.tar.gz"]
+RUN cd /tmp && tar -xvf jackett*
 ADD ["jackett.service", "/etc/systemd/system/"]
 RUN adduser jackett
 RUN addgroup jackett

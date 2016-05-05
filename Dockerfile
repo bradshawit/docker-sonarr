@@ -16,8 +16,8 @@ ADD launch.sh /launch.sh
 RUN chmod +x "/launch.sh"
 
 # http://www.htpcguides.com/install-jackett-ubuntu-15-x-for-custom-torrents-in-sonarr/
-RUN jackettver=$(wget -q https://github.com/Jackett/Jackett/releases/latest -O - | grep -E \/tag\/ | awk -F "[><]" '{print $3}') && \
-    wget -q https://github.com/Jackett/Jackett/releases/download/$jackettver/Jackett.Binaries.Mono.tar.gz /tmp/
+RUN cd /tmp && jackettver=$(wget -q https://github.com/Jackett/Jackett/releases/latest -O - | grep -E \/tag\/ | awk -F "[><]" '{print $3}') && \
+    wget -q https://github.com/Jackett/Jackett/releases/download/$jackettver/Jackett.Binaries.Mono.tar.gz
 RUN cd /tmp && tar -xvf Jackett*
 # ADD ["jackett.service", "/etc/systemd/system/jackett.service"]
 RUN adduser jackett

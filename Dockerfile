@@ -12,13 +12,17 @@ RUN apt-get update -q && \
 
 # http://www.htpcguides.com/install-jackett-ubuntu-15-x-for-custom-torrents-in-sonarr/
 ADD ["https://github.com/zone117x/Jackett/archive/v0.6.9.tar.gz", "/tmp/jackett"]
-
+ADD ["jackett.service", "/etc/systemd/system/"]
+RUN adduser jackett
+RUN addgroup jackett
+RUN adduser jackett jackett
 RUN mkdir /opt/jackett && mv /tmp/jackett/* /opt/jackett
 
-RUN touch /etc/systemd/system/jackett.service
+# RUN touch /etc/systemd/system/jackett.service
 
-#chown -R user:user /opt/jackett
+chown -R jackett:jackett /opt/jackett
 
+RUN systemctl enable jackett && service jackett start
 
 EXPOSE 8989
 EXPOSE 9117

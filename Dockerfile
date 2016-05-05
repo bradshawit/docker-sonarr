@@ -16,7 +16,7 @@ ADD ["https://github.com/zone117x/Jackett/archive/v0.6.9.tar.gz", "/tmp/jackett.
 RUN cd /tmp && tar -xvf jackett*
 ADD ["jackett.service", "/etc/systemd/system/"]
 RUN adduser jackett
-RUN addgroup jackett
+#RUN addgroup jackett
 RUN adduser jackett jackett
 RUN mkdir /opt/jackett && mv /tmp/jackett/* /opt/jackett
 

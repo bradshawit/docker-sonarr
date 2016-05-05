@@ -13,3 +13,4 @@ RUN apt-get update -q && \
 EXPOSE 8989
 
 RUN mono --debug /opt/NzbDrone/NzbDrone.exe
+

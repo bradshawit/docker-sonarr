@@ -22,7 +22,7 @@ RUN mkdir /opt/jackett && mv /tmp/Jackett*/* /opt/jackett
 
 # RUN touch /etc/systemd/system/jackett.service
 
-chown -R jackett:jackett /opt/jackett
+RUN chown -R jackett:jackett /opt/jackett
 
 RUN systemctl enable jackett && service jackett start
 

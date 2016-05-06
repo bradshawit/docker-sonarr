@@ -15,5 +15,9 @@ RUN chmod +x "/launch.sh"
 
 EXPOSE 8989
 
+VOLUME  ["/data/downloads"]
+VOLUME  ["/data/torrentfiles"]
+VOLUME  ["/data/tv"]
+
 # CMD ["mono --debug /opt/NzbDrone/NzbDrone.exe"]
 CMD ["/launch.sh"]

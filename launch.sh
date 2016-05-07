@@ -2,5 +2,5 @@
 
 set -e
 
-mono --debug /opt/NzbDrone/NzbDrone.exe &
+mono --debug /opt/NzbDrone/NzbDrone.exe -data=/data/sonarr &
 wait
